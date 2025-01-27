@@ -29,5 +29,5 @@ app.get("/recommendations", async (req, res) => {
     }
 });
 
-const PORT = 3002;
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Recommendation service running on http://localhost:${PORT}`));
