@@ -5,6 +5,12 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
+const corsOptions = {
+    origin: "https://front-movies-production.up.railway.app", // Cambia a la URL de tu frontend
+    methods: ["GET", "POST"],
+  };
+app.use(cors(corsOptions));
+
 const TMDB_API_KEY = "ed9f75cf8655856f875f32f624a18783";
 
 app.get("/recommendations", async (req, res) => {
@@ -29,5 +35,5 @@ app.get("/recommendations", async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT;
+const PORT = 3003
 app.listen(PORT, () => console.log(`Recommendation service running on http://localhost:${PORT}`));
